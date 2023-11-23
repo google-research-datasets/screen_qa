@@ -58,7 +58,7 @@ If you use or discuss this dataset in your work, please cite our paper:
 ```shell
 @misc{hsiao2022screenqa,
       title={ScreenQA: Large-Scale Question-Answer Pairs over Mobile App Screenshots},
-      author={Yu-Chung Hsiao and Fedir Zubach and Maria Wang and Jindong and Chen},
+      author={Yu-Chung Hsiao and Fedir Zubach and Maria Wang and Jindong Chen},
       year={2022},
       eprint={2209.08199},
       archivePrefix={arXiv},
