@@ -1,14 +1,14 @@
 # ScreenQA dataset
 
-The directory `answers_and_bboxes` contains Screen Question Answering dataset
-data described in
+This repository contains Screen Question Answering dataset data first described
+in the
 [ScreenQA: Large-Scale Question-Answer Pairs over Mobile App Screenshots](https://arxiv.org/abs/2209.08199)
 paper.
 
 The dataset contains ~86K questions and answers for ~35K screenshots from the
-public [Rico](http://www.interactionmining.org/rico.html) dataset. This data was
-produced by human raters. Only the screenshots with View Hierarchy in sync were
-used (see section 4.1 of the paper for more details).
+public [Rico](http://www.interactionmining.org/rico.html) dataset. Only the
+screenshots with View Hierarchy in sync were used (see section 4.1 of the paper
+for more details).
 
 The screenshots are represented by unique image ids, and those should be used to
 retrieve the corresponding images and accompanying data from
@@ -27,8 +27,14 @@ questions respectively.
 
 ## Data format
 
-Each data split is stored in a separate file in JSON format. It contains a list
-of question-answers pairs. The available keys for each entry are:
+Each directory contains ScreenQA data as 3 JSON files, one per each data split.
+
+### `answers_and_bboxes` directory
+
+Each JSON file in this directory contains a list of question-answers pairs. This
+data was produced by human raters.
+
+The available keys for each entry are:
 
 *   `image_id` - screenshot identifier in
     [Rico](http://www.interactionmining.org/rico.html) dataset (should be used
@@ -51,7 +57,7 @@ of question-answers pairs. The available keys for each entry are:
             element in the View Hierarchy tree depth-first traversal (starting
             from 0) if the element is one of the View Hierarchy elements.
 
-## Citation
+#### Citation
 
 If you use or discuss this dataset in your work, please cite our paper:
 
@@ -63,6 +69,38 @@ If you use or discuss this dataset in your work, please cite our paper:
       eprint={2209.08199},
       archivePrefix={arXiv},
       primaryClass={cs.CL}
+}
+```
+
+### `short_answers` directory
+
+Each JSON file in this directory contains a list of question-answers pairs. The
+answers data was produced automatically by a model based on the original data
+from human raters. This modification of the original ScreenQA dataset was first
+described in the
+[ScreenAI: A Vision-Language Model for UI and Infographics Understanding](https://arxiv.org/abs/2402.04615)
+paper as "ScreenQA Short".
+
+The available keys for each entry are:
+
+*   `image_id` - screenshot identifier in
+    [Rico](http://www.interactionmining.org/rico.html) dataset (should be used
+    to get image bytes and other information tied to this screenshot).
+*   `question` - question about the screen.
+*   `ground_truth` - list of short answers to the question.
+
+#### Citation
+
+If you use or discuss this dataset in your work, please cite our paper:
+
+```shell
+@misc{baechler2024screenai,
+      title={ScreenAI: A Vision-Language Model for UI and Infographics Understanding},
+      author={Gilles Baechler and Srinivas Sunkara and Maria Wang and Fedir Zubach and Hassan Mansoor and Vincent Etter and Victor Cărbune and Jason Lin and Jindong Chen and Abhanshu Sharma},
+      year={2024},
+      eprint={2402.04615},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
 }
 ```
 
