@@ -1,38 +1,44 @@
-# ScreenQA dataset
+# ScreenQA datasets
 
-This repository contains Screen Question Answering dataset data first described
-in the
-[ScreenQA: Large-Scale Question-Answer Pairs over Mobile App Screenshots](https://arxiv.org/abs/2209.08199)
-paper.
+This repository contains Screen Question Answering datasets data. The datasets
+are meant to be used as benchmarks for screen content understanding via question
+answering.
+
+The datasets are based on the screenshots from the public
+[Rico](http://www.interactionmining.org/rico.html) dataset. The screenshots are
+represented by unique image ids, and those should be used to retrieve the
+corresponding images and accompanying data from
+[Rico](http://www.interactionmining.org/rico.html).
+
+There are currently 3 datasets available here:
+
+*   ScreenQA (original).
+*   ScreenQA Short.
+*   ComplexQA.
+
+## Datasets
+
+### ScreenQA
 
 The dataset contains ~86K questions and answers for ~35K screenshots from the
 public [Rico](http://www.interactionmining.org/rico.html) dataset. Only the
-screenshots with View Hierarchy in sync were used (see section 4.1 of the paper
-for more details).
-
-The screenshots are represented by unique image ids, and those should be used to
-retrieve the corresponding images and accompanying data from
-[Rico](http://www.interactionmining.org/rico.html).
-
-## Data split
+screenshots with View Hierarchy in sync were used (see section 4.1 of the
+[paper](https://arxiv.org/abs/2209.08199) for more details). This data was
+produced by human raters.
 
 All the screenshots are split randomly into a training set, a validation set,
 and a test set. This means that while a single screenshot can have multiple
 questions and answers, all questions and answers for the same screenshot are in
 the same split.
 
-Train, validation and test splits contain 28378 (~80%), 3485 (~10%) and 3489
-(~10%) of all screenshots and 68980 (~80%), 8618 (~10%) and 8427 (~10%) of all
-questions respectively.
+Train, validation and test splits contain 28,378 (~80%), 3,485 (~10%) and 3,489
+(~10%) of all screenshots and 68,980 (~80%), 8,618 (~10%) and 8,427 (~10%) of
+all questions respectively.
 
-## Data format
-
-Each directory contains ScreenQA data as 3 JSON files, one per each data split.
-
-### `answers_and_bboxes` directory
-
-Each JSON file in this directory contains a list of question-answers pairs. This
-data was produced by human raters.
+You can find the dataset in the
+[`answers_and_bboxes`](https://github.com/google-research-datasets/screen_qa/tree/main/answers_and_bboxes)
+directory. It contains ScreenQA data as 3 JSON files, one per each data split.
+Each JSON file contains a list of question-answers pairs.
 
 The available keys for each entry are:
 
@@ -57,29 +63,17 @@ The available keys for each entry are:
             element in the View Hierarchy tree depth-first traversal (starting
             from 0) if the element is one of the View Hierarchy elements.
 
-#### Citation
+### ScreenQA Short
 
-If you use or discuss this dataset in your work, please cite our paper:
+This is a modification of the original ScreenQA dataset. It contains the same
+set of questions for the same screenshots in each of the train, validation and
+test splits. The answers data was produced automatically by a model based on the
+original data from human raters.
 
-```shell
-@misc{hsiao2022screenqa,
-      title={ScreenQA: Large-Scale Question-Answer Pairs over Mobile App Screenshots},
-      author={Yu-Chung Hsiao and Fedir Zubach and Maria Wang and Jindong Chen},
-      year={2022},
-      eprint={2209.08199},
-      archivePrefix={arXiv},
-      primaryClass={cs.CL}
-}
-```
-
-### `short_answers` directory
-
-Each JSON file in this directory contains a list of question-answers pairs. The
-answers data was produced automatically by a model based on the original data
-from human raters. This modification of the original ScreenQA dataset was first
-described in the
-[ScreenAI: A Vision-Language Model for UI and Infographics Understanding](https://arxiv.org/abs/2402.04615)
-paper as "ScreenQA Short".
+You can find the dataset in the
+[`short_answers`](https://github.com/google-research-datasets/screen_qa/tree/main/short_answers)
+directory. It contains 3 JSON files, one for each data split. Each JSON file
+contains a list of question-answers pairs.
 
 The available keys for each entry are:
 
@@ -89,9 +83,57 @@ The available keys for each entry are:
 *   `question` - question about the screen.
 *   `ground_truth` - list of short answers to the question.
 
-#### Citation
+### ComplexQA
+
+This is an extension/alternative to the ScreenQA Short dataset containing
+questions and answers mainly focused on counting, arithmetic, and comparison
+operations requiring information from more than one part of the screen. It
+contains 11,781 question-answer pairs. The data was produced automatically by a
+model based on the screen information and validated by human raters.
+
+You can find the dataset in the
+[`complex_qa`](https://github.com/google-research-datasets/screen_qa/tree/main/complex_qa)
+directory. It contains a `data.json` JSON file with a list of question-answer
+pairs.
+
+The available keys for each entry are:
+
+*   `image_id` - screenshot identifier in
+    [Rico](http://www.interactionmining.org/rico.html) dataset (should be used
+    to get image bytes and other information tied to this screenshot).
+*   `question` - question about the screen.
+*   `ground_truth` - list of short answers to the question (current version
+    contains only one answer though).
+
+## Papers
+
+### [ScreenQA: Large-Scale Question-Answer Pairs over Mobile App Screenshots](https://arxiv.org/abs/2209.08199)
+
+This paper describes the original ScreenQA dataset.
 
 If you use or discuss this dataset in your work, please cite our paper:
+
+```shell
+@misc{hsiao2024screenqa,
+      title={ScreenQA: Large-Scale Question-Answer Pairs over Mobile App Screenshots},
+      author={Yu-Chung Hsiao and Fedir Zubach and Maria Wang and Jindong Chen},
+      year={2024},
+      eprint={2209.08199},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL}
+}
+```
+
+### [ScreenAI: A Vision-Language Model for UI and Infographics Understanding](https://arxiv.org/abs/2402.04615)
+
+This paper describes 3 datasets:
+
+*   ScreenQA Short.
+*   ComplexQA.
+*   Screen Annotation.
+
+If you use or discuss any of those 3 datasets in your work, please cite our
+paper:
 
 ```shell
 @misc{baechler2024screenai,
@@ -103,6 +145,17 @@ If you use or discuss this dataset in your work, please cite our paper:
       primaryClass={cs.CV}
 }
 ```
+
+#### Screen Annotation dataset details
+
+The Screen Annotation dataset consists of pairs of mobile screenshots and their
+annotations. The mobile screenshots are directly taken from the publicly
+available [Rico](http://www.interactionmining.org/rico.html) dataset. The
+annotations are in text format, and contain information on the UI elements
+present on the screen: their type, their location, the text they contain or a
+short description. This dataset can be used to improve the screen understanding
+capabilities of multimodal (image+text) models. A link to this dataset will be
+added here once it is available.
 
 ## License
 
