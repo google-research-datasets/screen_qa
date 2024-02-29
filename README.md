@@ -12,9 +12,12 @@ corresponding images and accompanying data from
 
 There are currently 3 datasets available here:
 
-*   ScreenQA (original).
-*   ScreenQA Short.
-*   ComplexQA.
+*   [ScreenQA](#screenqa) (original).
+*   [ScreenQA Short](#screenqa-short).
+*   [ComplexQA](#complexqa).
+
+See also a related [Screen Annotation](#screen-annotation-dataset-details)
+dataset.
 
 ## Datasets
 
@@ -109,7 +112,7 @@ The available keys for each entry are:
 
 ### [ScreenQA: Large-Scale Question-Answer Pairs over Mobile App Screenshots](https://arxiv.org/abs/2209.08199)
 
-This paper describes the original ScreenQA dataset.
+This paper describes the original [ScreenQA](#screenqa) dataset.
 
 If you use or discuss this dataset in your work, please cite our paper:
 
@@ -128,9 +131,9 @@ If you use or discuss this dataset in your work, please cite our paper:
 
 This paper describes 3 datasets:
 
-*   ScreenQA Short.
-*   ComplexQA.
-*   Screen Annotation.
+*   [ScreenQA Short](#screenqa-short).
+*   [ComplexQA](#complexqa).
+*   [Screen Annotation](#screen-annotation-dataset-details).
 
 If you use or discuss any of those 3 datasets in your work, please cite our
 paper:
