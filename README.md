@@ -16,7 +16,8 @@ There are currently 3 datasets available here:
 *   [ScreenQA Short](#screenqa-short).
 *   [ComplexQA](#complexqa).
 
-See also a related [Screen Annotation](#screen-annotation-dataset-details)
+See also a related
+[Screen Annotation](https://github.com/google-research-datasets/screen_annotation)
 dataset.
 
 ## Datasets
@@ -133,7 +134,8 @@ This paper describes 3 datasets:
 
 *   [ScreenQA Short](#screenqa-short).
 *   [ComplexQA](#complexqa).
-*   [Screen Annotation](#screen-annotation-dataset-details).
+*   [Screen Annotation](https://github.com/google-research-datasets/screen_annotation)
+    (located in a different repository).
 
 If you use or discuss any of those 3 datasets in your work, please cite our
 paper:
@@ -148,17 +150,6 @@ paper:
       primaryClass={cs.CV}
 }
 ```
-
-#### Screen Annotation dataset details
-
-The Screen Annotation dataset consists of pairs of mobile screenshots and their
-annotations. The mobile screenshots are directly taken from the publicly
-available [Rico](http://www.interactionmining.org/rico.html) dataset. The
-annotations are in text format, and contain information on the UI elements
-present on the screen: their type, their location, the text they contain or a
-short description. This dataset can be used to improve the screen understanding
-capabilities of multimodal (image+text) models. A link to this dataset will be
-added here once it is available.
 
 ## License
 
