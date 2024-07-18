@@ -36,7 +36,7 @@ questions and answers, all questions and answers for the same screenshot are in
 the same split.
 
 Train, validation and test splits contain 28,378 (~80%), 3,485 (~10%) and 3,489
-(~10%) of all screenshots and 68,980 (~80%), 8,618 (~10%) and 8,427 (~10%) of
+(~10%) of all screenshots and 68,951 (~80%), 8,614 (~10%) and 8,419 (~10%) of
 all questions respectively.
 
 You can find the dataset in the
@@ -49,6 +49,8 @@ The available keys for each entry are:
 *   `image_id` - screenshot identifier in
     [Rico](http://www.interactionmining.org/rico.html) dataset (should be used
     to get image bytes and other information tied to this screenshot).
+*   `image_width` - width of the screenshot.
+*   `image_height` - height of the screenshot.
 *   `question` - question about the screen.
 *   `ground_truth` - list of information about the answer to the question, each
     element from a different human rater. Each contains:
