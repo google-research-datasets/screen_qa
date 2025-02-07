@@ -115,14 +115,15 @@ The available keys for each entry are:
 
 ### [ScreenQA: Large-Scale Question-Answer Pairs over Mobile App Screenshots](https://arxiv.org/abs/2209.08199)
 
-This paper describes the original [ScreenQA](#screenqa) dataset.
+This paper describes the ScreenQA dataset (both [original](#screenqa) and
+[short](#screenqa-short)).
 
 If you use or discuss this dataset in your work, please cite our paper:
 
 ```shell
 @misc{hsiao2024screenqa,
       title={ScreenQA: Large-Scale Question-Answer Pairs over Mobile App Screenshots},
-      author={Yu-Chung Hsiao and Fedir Zubach and Maria Wang and Jindong Chen},
+      author={Yu-Chung Hsiao and Fedir Zubach and Gilles Baechler and Victor C{\u a}rbune and Jason Lin and Maria Wang and Srinivas Sunkara and Yun Zhu and Jindong Chen},
       year={2024},
       eprint={2209.08199},
       archivePrefix={arXiv},
@@ -132,14 +133,13 @@ If you use or discuss this dataset in your work, please cite our paper:
 
 ### [ScreenAI: A Vision-Language Model for UI and Infographics Understanding](https://arxiv.org/abs/2402.04615)
 
-This paper describes 3 datasets:
+This paper describes 2 datasets:
 
-*   [ScreenQA Short](#screenqa-short).
 *   [ComplexQA](#complexqa).
 *   [Screen Annotation](https://github.com/google-research-datasets/screen_annotation)
     (located in a different repository).
 
-If you use or discuss any of those 3 datasets in your work, please cite our
+If you use or discuss any of those 2 datasets in your work, please cite our
 paper:
 
 ```shell
@@ -152,6 +152,17 @@ paper:
       primaryClass={cs.CV}
 }
 ```
+
+## Code
+
+The
+[`code`](https://github.com/google-research-datasets/screen_qa/tree/main/code)
+directory contains `metrics.py` file with functions to compute metrics for
+SQA-S, SQA-UIC and SQA-UIC-BB task (see details about the different ScreenQA
+tasks in the
+[paper](#screenqa-large-scale-question-answer-pairs-over-mobile-app-screenshots)).
+For the SQA-L task see [implementation](https://pypi.org/project/rouge-score/)
+of the ROUGE metric ([paper](https://aclanthology.org/W04-1013/)).
 
 ## License
 
